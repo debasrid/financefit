@@ -1,0 +1,39 @@
+<h1>My Food History</h1>
+
+<table id="myTable" class=" table order-list">
+    <thead>
+        <tr>
+            <td>Date</td>
+            <td>Store Name</td>
+            <td>Food Items Bought</td>
+            <td>Calories</td>
+            <td>Price</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+      {{#each allitems}}
+        <tr>
+            <td>{{buying_date}}</td>
+            <td>{{store_name}}</td>
+            <td>{{product_name}}</td>
+            <td>{{calorie}}</td>
+            <td>{{price}}</td>
+            <td><a href="/data/edit?id={{_id}}">edit</a></td>
+        </tr>
+        {{/each}}
+        <tr>
+            <td colspan="3">DAILY TOTAL</td>
+            <td>{{totalcalorie}}</td>
+            <td>{{totalprice}}</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <ul>
+        <li><a href="/auth/today">add new items</a></li>
+    </ul>
+</div>
+
+

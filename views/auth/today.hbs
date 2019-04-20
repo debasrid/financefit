@@ -1,0 +1,61 @@
+<h2>Today's Budget</h2>
+
+<form action="/data/uploadreceipt" method="post" enctype="multipart/form-data">
+  <p> <label for="receipt_upload">Upload Receipt</label></p>
+  <input type="file" name="receipt">
+  <input type="submit" value="Upload">
+</form>
+
+<form action="/data/today" method="post">
+
+<h4>Food Items</h4>
+
+
+ <table id="myTable" class=" table order-list">
+    <thead>
+        <tr>
+            <td>Date</td>
+            <td>Store Name</td>
+            <td>Food Items Bought</td>
+            <td>Calories</td>
+            <td>Price</td>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+           <input type="hidden" name="buyer_name" value="{{ loggedUser }}"/>
+            <td class="col-sm-2">
+                <input type="date" name="buying_date" class="form-control" />
+            </td>
+            <td class="col-sm-3">
+                <input type="text" name="store_name"  class="form-control"/>
+            </td>
+            <td class="col-sm-3">
+                <input type="text" name="product_name"  class="form-control"/>
+            </td>
+            <td class="col-sm-3">
+                <input type="number" name="calorie"  class="form-control"/>
+            </td>
+            <td class="col-sm-3">
+                <input type="number" name="price" min="0"  class="form-control"/>
+            </td>
+            <td class="col-sm-2"><a class="deleteRow"></a>
+
+            </td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="5" style="text-align: left;">
+                <input type="button" class="btn btn-lg btn-block " id="addrow" value="Add Row" />
+            </td>
+        </tr>
+        <tr>
+        </tr>
+    </tfoot>
+</table>
+
+</br>  
+<button type="submit" onclick="/views/success.hbs">Save</button>
+</form>
