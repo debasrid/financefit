@@ -1,0 +1,1 @@
+FinanceFit is an application for keeping track of daily spendings and calorie consumption of users directly from the shopping bills. You just need to upload a photo of the bill, or you can add the purchase details manually.
