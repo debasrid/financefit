@@ -1,0 +1,56 @@
+<div class="container-dashboard">
+    <div class="row">
+        <div class="col-1"></div>
+         <div class="col-10">
+<h2>Edit Item</h2>
+
+{{#each allitems}}
+<form action="/data/itemedit?id={{_id}}" method="post">
+
+<h4>Food Items</h4>
+<input type="hidden" name="loggedInState" id="loggedInState" value="true"/>
+
+ <table id="myTable" class=" table order-list">
+    <thead>
+        <tr>
+            <td>Date</td>
+            <td>Store Name</td>
+            <td>Food Items Bought</td>
+            <td>Calories</td>
+            <td>Price</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+           <input type="hidden" name="buyer_name" value="{{buyer_name}}"/>
+            <td class="col-sm-2">
+                <input type="date" name="buying_date" class="form-control" value="{{buying_date}}" />
+            </td>
+            <td class="col-sm-3">
+                <input type="text" name="store_name"  class="form-control" value="{{store_name}}"/>
+            </td>
+            <td class="col-sm-3">
+                <input type="text" name="product_name"  class="form-control" value="{{product_name}}"/>
+            </td>
+            <td class="col-sm-3">
+                <input type="number" name="calorie"  class="form-control" value="{{calorie}}"/>
+            </td>
+            <td class="col-sm-3">
+                <input type="number" name="price" min="0"  class="form-control" value="{{price}}"/>
+            </td>
+            <td class="col-sm-2"><a class="deleteRow"></a>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+</form>
+</div>
+ <div class="col-1"></div>
+</br>  
+<button type="submit" onclick="/views/success.hbs">Save</button>
+</form>
+{{/each}}
+</div>
+</div>

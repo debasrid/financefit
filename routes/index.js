@@ -6,7 +6,9 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
- 
-
+/* GET chat page */
+router.get('/chat', (req, res, next) => {
+  res.render("chat");
+});
 
 module.exports = router;

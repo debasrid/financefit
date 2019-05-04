@@ -3,6 +3,7 @@ const passport = require('passport');
 const router = express.Router();
 const User = require("../models/user");
 const ensureLogin = require('connect-ensure-login');
+const querystring = require('querystring');
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -27,7 +28,8 @@ router.post("/login", passport.authenticate("local", {
 }));
 
 router.get("/dashboard", ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
-  res.render("auth/dashboard", { loggedUser: req.user.username });
+  req.session.user = req.user.username;
+  res.redirect('/data/dashboard');
 });
 
 router.get("/archive", ensureLogin.ensureLoggedIn('/auth/login'), (req, res, next) => {
@@ -42,11 +44,14 @@ router.get("/signup", (req, res, next) => {
   res.render("auth/signup");
 });
 
+//-------------------- User signup route ---------------------------------------------------------------
+
 router.post("/signup", (req, res, next) => {
+  const email = req.body.email;
   const username = req.body.username;
   const password = req.body.password;
-  if (username === "" || password === "") {
-    res.render("auth/signup", { message: "Indicate username and password" });
+  if (email === "" || username === "" || password === "") {
+    res.render("auth/signup", { message: "Indicate email, username and password" });
     return;
   }
 
@@ -60,13 +65,18 @@ router.post("/signup", (req, res, next) => {
     const hashPass = bcrypt.hashSync(password, salt);
 
     const newUser = new User({
+      email,
       username,
       password: hashPass
     });
 
     newUser.save()
     .then(() => {
-      res.redirect("/");
+      // Send mail to user here   
+      const query = querystring.stringify({
+        "email": email
+      });
+      res.redirect("/data/sendsignupmail?" + query);   //--------------Send mail to user after signup--------------
     })
     .catch(err => {
       res.render("auth/signup", { message: "Something went wrong" });
@@ -74,9 +84,15 @@ router.post("/signup", (req, res, next) => {
   });
 });
 
+router.post("/sendchat", (req, res, next) => {
+  res.render('success', { message: 'Your message successfully sent' });
+});
+
 router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
+
+
 
 module.exports = router;

@@ -1,0 +1,53 @@
+<div class="banner-signup">
+  <div class="row justify-content-center" style="padding-top:20px;">
+   
+   {{!-- \\*-- code against chat button---*\\ --}}
+   
+    <div class="col-4"></div>
+    <div class="col-4">
+      <h2>Chat with us</h2>
+
+      <form id="chatform" action="/auth/sendchat" method="post">
+        <fieldset>
+          <label for="name">What's your name?</label>
+          <input required cf-questions="Hi there! What's your name? 😊" type="text" class="form-control" name="name"
+            id="name" />
+        </fieldset>
+
+        <fieldset>
+          <label for="opinion">What is your question?</label>
+          <input required cf-questions="Tell me what you want" type="text" class="form-control" name="message"
+            id="message" />
+        </fieldset>
+
+        <fieldset>
+          <label for="email">Your Email</label>
+          <input pattern=".+\@.+\..+" cf-error="E-mail not correct" cf-questions="Please provide your email" type="text"
+            class="form-control" name="email" id="your-email">
+        </fieldset>
+
+        <fieldset style="display: none;">
+          <label for="thats-all">Are you ready to submit the form?</label>
+          <select cf-questions="Are you ready to submit the form?" name="submit-form" id="submit-form"
+            class="form-control">
+            <option></option>
+            <option>Yup</option>
+          </select>
+        </fieldset>
+
+        <fieldset style="display: none;">
+          <label for="thats-all">Want to start over?</label>
+          <select cf-questions="Want to start over?" name="repeat" id="repeat" class="form-control">
+            <option></option>
+            <option>Yes, let's go again</option>
+          </select>
+        </fieldset>
+        <fieldset style="padding-top:15px;">
+          <button type="submit" class="btn btn-secondary">Submit</button>
+        </fieldset>
+      </form>
+    </div>
+    <div class="col-4"></div>
+  </div>
+  <div id="cf-context" class="dark-theme" role="cf-context" cf-context></div>
+</div>

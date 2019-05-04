@@ -1,26 +1,39 @@
+<div class="banner-login row">
 
-<h2>Login</h2>
+  <div class="col">
+    <img src="..\images\internet-security.width-1200.png" width="100%" class="img-fluid" style="padding:10% 0 0 10%;">
+  </div>
 
-<form action="/auth/login" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="Your name">
+  <div class="col banner-loginform ">
+    <div class="row justify-content-center">
 
-  <br><br>
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
-  
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
+      <form action="/auth/login" method="POST" id="form-container">
+        <h2>Login</h2>
+        <label for="username">Username</label>
+        <input id="username" type="text" name="username">
 
-  <br><br>
+        <br><br>
 
-  <button>Login</button>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password">
+        <br>
 
-  <p class="account-message">
-    Don't have an account yet?
-    <a href="/auth/signup">Signup</a>
-  </p>
-</form>
+        {{#if message }}
+        <div class="error-message">{{ message }}</div>
+        {{/if}}
+    </div>
+    <br><br>
+    <div class="row justify-content-center">
+      <button class="btn btn-primary">Login</button>
+    </div>
+    <div class="row justify-content-center">
+      <p class="account-message">
+        </br>
+        Don't have an account yet?
+        <a href="/auth/signup">Signup</a>
+      </p>
+    </div>
+    </form>
+  </div>
+</div>

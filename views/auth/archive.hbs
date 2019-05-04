@@ -1,8 +1,13 @@
-<h1>My Food History</h1>
+<div class="container-dashboard">
+    <div class="row justify-content-center text-center">
+        <div class="col-1"></div>
+        <div class="col-10" style="overflow-y: auto; height:60%;" >
+<h2 style="color:rgb(80, 36, 121);padding-top:10px;">My Food History</h2>
+<input type="hidden" name="loggedInState" id="loggedInState" value="true"/>
 
-<table id="myTable" class=" table order-list">
+<table id="myTable" class=" table order-list" >
     <thead>
-        <tr>
+        <tr style="color:chocolate; font-weight:bold;font-size:18px;">
             <td>Date</td>
             <td>Store Name</td>
             <td>Food Items Bought</td>
@@ -19,21 +24,27 @@
             <td>{{product_name}}</td>
             <td>{{calorie}}</td>
             <td>{{price}}</td>
-            <td><a href="/data/edit?id={{_id}}">edit</a></td>
+            <td class="btn btn-warning"><a href="/data/edit?id={{_id}}">edit</a></td>
         </tr>
         {{/each}}
+        </div>
+        
         <tr>
-            <td colspan="3">DAILY TOTAL</td>
+            <td colspan="3">TOTAL-Price and Calories </td>
             <td>{{totalcalorie}}</td>
             <td>{{totalprice}}</td>
             <td></td>
         </tr>
     </tbody>
 </table>
+</div>
+ <div class="col-1"></div>
+ 
 <div>
     <ul>
-        <li><a href="/auth/today">add new items</a></li>
+        <li class="btn btn-success" style="color:white;"><a href="/auth/today">Add New Items</a></li>
     </ul>
 </div>
-
+</div>
+</div>
 

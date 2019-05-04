@@ -14,7 +14,8 @@ const ReceiptDataSchema = new Schema({
   receiptImageName: String,
   receiptImagePath: String,
   receiptOriginalName: String,
-  receiptText: [String]
+  receiptText: [String],
+  receiptImageBucket: String
 
 });
 

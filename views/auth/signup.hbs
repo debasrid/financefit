@@ -1,26 +1,49 @@
-<h2>Signup</h2>
+<div class="banner-signup row">
+  
+  <div class="col-6"style="top:10%; left:1%">
+    <img src="..\images\digital-marketing.png" width="100%" >
+  </div>
+  
+  <div class="col-2"></div>
 
-<form action="/auth/signup" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="Your Name">
+  <div class="col-3 banner-form ">
+   <h2 style="padding-bottom:20px;">Signup</h2>
+  <div class="row justify-content-center">
+  <div class="col-12">
+ 
+  <form action="/auth/signup" method="POST" id="form-container">
 
-  <br><br>
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br><br>
-   <label for="picture">Upload Picture</label>
-   <input type="file" name="picture">
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
+  
+  <input id="email" type="text" name="email" placeholder="Your Email">
+   <br><br>
+  
+   <input id="username" type="text" name="username" placeholder="Your Name">
+    <br><br>
+  
+    <input id="password" type="password" name="password" placeholder="Your password">
+     <br><br>
+   {{!-- <label for="picture">Upload Picture</label>
+   <input type="file" name="picture"></br> --}}
 
-  <br><br>
+  
+    {{#if message }}
+      <div class="error-message ">{{ message }}</div>
+    {{/if}}
 
-  <button>Create account</button>
-
-  <p class="account-message">
+  
+  <div class="">
+      <button class="btn btn-success">Create account</button>
+  </div>
+<div>  
+  <div>
+  </br>
     Do you already have an account?
     <a href="/auth/login">Login</a>
-  </p>
+    </div>
+  </div>
+  </div>
+  </div>
+  <div class="col-1"></div>
 </form>
+</div>
